@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ car.car_name }} | DriveLux</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f5;
+            color: #171717;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            height: 72px;
+            background: #ffffff;
+            border-bottom: 1px solid #e8e8e5;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+        }
+
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #171717;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ===================================================== */
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+
+        .back-link:hover {
+            color: #000;
+        }
+
+
+        /* =====================================================
+           CAR DETAIL
+        ===================================================== */
+
+        .car-detail {
+            background: #ffffff;
+            border: 1px solid #e5e5e2;
+            border-radius: 20px;
+            overflow: hidden;
+
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+
+            min-height: 560px;
+        }
+
+
+        /* =====================================================
+           IMAGE
+        ===================================================== */
+
+        .image-section {
+            background: #f1f1ee;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 35px;
+        }
+
+
+        .car-image {
+            width: 100%;
+            height: 450px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+
+        .no-image {
+            color: #888;
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           DETAILS
+        ===================================================== */
+
+        .details-section {
+            padding: 55px 50px;
+        }
+
+
+        .category {
+            color: #888;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+
+        .car-name {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+
+        .brand-model {
+            color: #777;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================================
+           AVAILABILITY
+        ===================================================== */
+
+        .availability {
+            display: inline-block;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            background: #eeeeeb;
+            color: #333;
+
+            font-size: 13px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================================
+           SPECIFICATIONS
+        ===================================================== */
+
+        .specifications {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .spec {
+            background: #f5f5f2;
+            padding: 16px 12px;
+            border-radius: 10px;
+        }
+
+
+        .spec-label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+
+        .spec-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           PRICE
+        ===================================================== */
+
+        .price-box {
+            border-top: 1px solid #e5e5e2;
+            padding-top: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .price {
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+
+        .price span {
+            color: #888;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+
+        .book-btn {
+            background: #171717;
+            color: white;
+
+            text-decoration: none;
+
+            padding: 15px 28px;
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        .book-btn:hover {
+            background: #333;
+        }
+
+
+        /* =====================================================
+           REVIEWS SECTION
+        ===================================================== */
+
+        .reviews-section {
+            margin-top: 40px;
+        }
+
+
+        .reviews-section h2 {
+            font-size: 24px;
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
+            color: #202a2e;
+        }
+
+
+        .review-card {
+            background: #ffffff;
+
+            border: 1px solid #e0e6e4;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .review-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .review-header strong {
+            display: block;
+
+            color: #202a2e;
+
+            font-size: 14px;
+        }
+
+
+        .review-header small {
+            display: block;
+
+            color: #899395;
+
+            font-size: 11px;
+
+            margin-top: 4px;
+        }
+
+
+        .review-rating {
+            color: #b58b00;
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .review-card p {
+            margin: 0;
+
+            color: #657174;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        .no-reviews {
+            padding: 25px;
+
+            background: #f7f7f3;
+
+            border-radius: 12px;
+
+            color: #7c8789;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           REVIEW FORM
+        ===================================================== */
+
+        .review-form-box {
+            margin-top: 35px;
+
+            background: #ffffff;
+
+            border: 1px solid #e0e6e4;
+
+            border-radius: 16px;
+
+            padding: 25px;
+        }
+
+
+        .review-form-box h2 {
+            font-size: 22px;
+
+            margin-bottom: 22px;
+
+            color: #202a2e;
+        }
+
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: #555;
+
+            margin-bottom: 8px;
+        }
+
+
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            border: 1px solid #dfe4e2;
+
+            border-radius: 9px;
+
+            padding: 12px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            outline: none;
+
+            background: #fcfdfc;
+        }
+
+
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #888;
+        }
+
+
+        .form-group textarea {
+            resize: vertical;
+
+            min-height: 120px;
+        }
+
+
+        .submit-review-btn {
+            border: none;
+
+            background: #171717;
+
+            color: white;
+
+            padding: 13px 22px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .submit-review-btn:hover {
+            background: #333;
+        }
+
+
+        /* =====================================================
+           LOGIN MESSAGE
+        ===================================================== */
+
+        .login-review-message {
+            color: #777;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .login-review-btn {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #171717;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .login-review-btn:hover {
+            background: #333;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .car-detail {
+                grid-template-columns: 1fr;
+            }
+
+
+            .image-section {
+                padding: 20px;
+            }
+
+
+            .car-image {
+                height: 320px;
+            }
+
+
+            .details-section {
+                padding: 35px 25px;
+            }
+
+
+            .car-name {
+                font-size: 34px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+
+            .nav-links {
+                gap: 12px;
+            }
+
+
+            .container {
+                width: 92%;
+            }
+
+
+            .specifications {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .price-box {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+            }
+
+
+            .review-header {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+
+            .review-rating {
+                margin-top: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+            DriveLux
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'home' %}">
+                Cars
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main class="container">
+
+
+        <a href="{% url 'home' %}" class="back-link">
+            ← Back to Cars
+        </a>
+
+
+
+        <!-- =====================================================
+             CAR DETAIL CARD
+        ===================================================== -->
+
+        <div class="car-detail">
+
+
+            <!-- =================================================
+                 CAR IMAGE
+            ================================================= -->
+
+            <div class="image-section">
+
+                {% if car.car_image %}
+
+                    <img
+                        src="{{ car.car_image.url }}"
+                        alt="{{ car.car_name }}"
+                        class="car-image"
+                    >
+
+                {% else %}
+
+                    <div class="no-image">
+                        No image available
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CAR DETAILS
+            ================================================= -->
+
+            <div class="details-section">
+
+
+                <div class="category">
+                    {{ car.category }}
+                </div>
+
+
+                <h1 class="car-name">
+                    {{ car.car_name }}
+                </h1>
+
+
+                <p class="brand-model">
+                    {{ car.brand }} · {{ car.model }}
+                </p>
+
+
+
+                <!-- AVAILABILITY -->
+
+                {% if car.available %}
+
+                    <div class="availability">
+                        Available
+                    </div>
+
+                {% else %}
+
+                    <div class="availability">
+                        Currently Unavailable
+                    </div>
+
+                {% endif %}
+
+
+
+                <!-- SPECIFICATIONS -->
+
+                <div class="specifications">
+
+
+                    <div class="spec">
+
+                        <span class="spec-label">
+                            Seats
+                        </span>
+
+                        <span class="spec-value">
+                            {{ car.seats }}
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="spec">
+
+                        <span class="spec-label">
+                            Fuel
+                        </span>
+
+                        <span class="spec-value">
+                            {{ car.fuel_type }}
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="spec">
+
+                        <span class="spec-label">
+                            Transmission
+                        </span>
+
+                        <span class="spec-value">
+                            {{ car.transmission }}
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="spec">
+
+                        <span class="spec-label">
+                            Location
+                        </span>
+
+                        <span class="spec-value">
+                            {{ car.location }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRICE -->
+
+                <div class="price-box">
+
+
+                    <div class="price">
+
+                        ₹{{ car.price_per_day }}
+
+                        <span>
+                            / day
+                        </span>
+
+                    </div>
+
+
+                    {% if car.available %}
+
+                        <a
+                            href="{% url 'book_car' car.id %}"
+                            class="book-btn"
+                        >
+                            Book Now
+                        </a>
+
+                    {% else %}
+
+                        <span class="book-btn"
+                              style="background:#aaa; cursor:not-allowed;">
+                            Unavailable
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             REVIEWS & RATINGS
+        ===================================================== -->
+
+        <div class="reviews-section">
+
+
+            <h2>
+                Customer Reviews
+            </h2>
+
+
+            {% if car.reviews.all %}
+
+
+                {% for review in car.reviews.all %}
+
+                    <div class="review-card">
+
+
+                        <div class="review-header">
+
+
+                            <div>
+
+                                <strong>
+                                    {{ review.customer_name }}
+                                </strong>
+
+                                <small>
+                                    {{ review.created_at|date:"d M Y" }}
+                                </small>
+
+                            </div>
+
+
+                            <!-- RATING -->
+
+                            <div class="review-rating">
+
+                                {% if review.rating >= 1 %}★{% endif %}
+                                {% if review.rating >= 2 %}★{% endif %}
+                                {% if review.rating >= 3 %}★{% endif %}
+                                {% if review.rating >= 4 %}★{% endif %}
+                                {% if review.rating >= 5 %}★{% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            {{ review.comment }}
+                        </p>
+
+
+                    </div>
+
+                {% endfor %}
+
+
+            {% else %}
+
+                <div class="no-reviews">
+
+                    <p>
+                        No reviews yet. Be the first to review this car.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- =====================================================
+             WRITE A REVIEW
+        ===================================================== -->
+
+        <div class="review-form-box">
+
+
+            <h2>
+                Write a Review
+            </h2>
+
+
+            {% if user.is_authenticated %}
+
+
+                <form
+                    method="POST"
+                    action="{% url 'add_review' car.id %}"
+                >
+
+                    {% csrf_token %}
+
+
+                    <!-- RATING -->
+
+                    <div class="form-group">
+
+                        <label for="rating">
+                            Rating
+                        </label>
+
+
+                        <select
+                            name="rating"
+                            id="rating"
+                            required
+                        >
+
+                            <option value="">
+                                Select Rating
+                            </option>
+
+                            <option value="5">
+                                ★★★★★ — 5 Stars
+                            </option>
+
+                            <option value="4">
+                                ★★★★ — 4 Stars
+                            </option>
+
+                            <option value="3">
+                                ★★★ — 3 Stars
+                            </option>
+
+                            <option value="2">
+                                ★★ — 2 Stars
+                            </option>
+
+                            <option value="1">
+                                ★ — 1 Star
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- COMMENT -->
+
+                    <div class="form-group">
+
+                        <label for="comment">
+                            Your Review
+                        </label>
+
+
+                        <textarea
+                            name="comment"
+                            id="comment"
+                            rows="5"
+                            placeholder="Share your experience with this car..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="submit-review-btn"
+                    >
+                        Submit Review
+                    </button>
+
+                </form>
+
+
+            {% else %}
+
+
+                <p class="login-review-message">
+                    Please login to write a review.
+                </p>
+
+
+                <a
+                    href="{% url 'login' %}"
+                    class="login-review-btn"
+                >
+                    Login to Review
+                </a>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>

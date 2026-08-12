@@ -1,0 +1,870 @@
+{% extends 'base.html' %}
+
+{% block title %}
+DriveLux | Booking Details
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* =====================================================
+   BOOKING DETAILS PAGE
+===================================================== */
+
+.booking-details-page {
+    min-height: 100vh;
+    background: #f7f7f3;
+    padding: 45px 0 80px;
+    color: #202a2e;
+}
+
+.booking-details-container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* =====================================================
+   TOP
+===================================================== */
+
+.details-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.details-label {
+    color: #23716e;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.details-title {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.details-subtitle {
+    color: #7c8789;
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+.back-dashboard {
+    display: inline-block;
+    background: #205e5b;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.back-dashboard:hover {
+    background: #174b49;
+    color: white;
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.details-card {
+    background: white;
+    border: 1px solid #e0e6e4;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   BOOKING HEADER
+===================================================== */
+
+.booking-header {
+    padding: 25px 28px;
+    background: #f1f6f5;
+    border-bottom: 1px solid #dfe9e7;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.booking-id-label {
+    color: #7b8789;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.booking-id {
+    color: #205e5b;
+    font-size: 22px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.status-pending {
+    background: #fff4df;
+    color: #a66d19;
+}
+
+.status-confirmed {
+    background: #e4f3f1;
+    color: #23716e;
+}
+
+.status-completed {
+    background: #e7f7ed;
+    color: #26834d;
+}
+
+.status-cancelled {
+    background: #fbeaea;
+    color: #a34c4c;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.details-content {
+    padding: 30px;
+}
+
+.details-section {
+    margin-bottom: 35px;
+}
+
+.details-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0 0 18px;
+    color: #202a2e;
+}
+
+
+/* =====================================================
+   INFORMATION GRID
+===================================================== */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.info-item {
+    border: 1px solid #e7eceb;
+    border-radius: 11px;
+    padding: 16px;
+    background: #fcfdfc;
+}
+
+.info-label {
+    display: block;
+    color: #899395;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    margin-bottom: 6px;
+}
+
+.info-value {
+    color: #273336;
+    font-size: 14px;
+    font-weight: 700;
+    word-break: break-word;
+}
+
+
+/* =====================================================
+   CAR SECTION
+===================================================== */
+
+.car-details-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.car-highlight {
+    background: #205e5b;
+    color: white;
+    border-radius: 13px;
+    padding: 23px;
+}
+
+.car-highlight-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    opacity: .75;
+}
+
+.car-highlight-name {
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 7px;
+}
+
+.car-highlight-model {
+    font-size: 13px;
+    opacity: .8;
+    margin-top: 4px;
+}
+
+.car-specs {
+    border: 1px solid #e7eceb;
+    border-radius: 13px;
+    padding: 23px;
+    background: #fcfdfc;
+}
+
+.car-spec-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 8px 0;
+    border-bottom: 1px solid #edf0ef;
+}
+
+.car-spec-row:last-child {
+    border-bottom: none;
+}
+
+.car-spec-label {
+    color: #899395;
+    font-size: 12px;
+}
+
+.car-spec-value {
+    color: #273336;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.price-box {
+    background: #f1f6f5;
+    border: 1px solid #dfe9e7;
+    border-radius: 14px;
+    padding: 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-label {
+    color: #758183;
+    font-size: 12px;
+}
+
+.total-price {
+    color: #205e5b;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   DATES
+===================================================== */
+
+.date-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.date-item {
+    border: 1px solid #e7eceb;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.date-label {
+    color: #899395;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+.date-value {
+    display: block;
+    color: #273336;
+    font-size: 16px;
+    font-weight: 800;
+    margin-top: 7px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.details-footer {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #edf0ef;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.created-date {
+    color: #8a9496;
+    font-size: 11px;
+}
+
+.cancel-button {
+    display: inline-block;
+    padding: 11px 16px;
+    background: #fbeaea;
+    color: #a34c4c;
+    border: 1px solid #f1d0d0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.cancel-button:hover {
+    background: #a34c4c;
+    color: white;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .booking-details-page {
+        padding-top: 30px;
+    }
+
+    .details-top {
+        display: block;
+    }
+
+    .back-dashboard {
+        display: inline-block;
+        margin-top: 18px;
+    }
+
+    .details-title {
+        font-size: 30px;
+    }
+
+    .booking-header {
+        display: block;
+    }
+
+    .booking-header .status-badge {
+        margin-top: 15px;
+    }
+
+    .details-content {
+        padding: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .car-details-box {
+        grid-template-columns: 1fr;
+    }
+
+    .date-box {
+        grid-template-columns: 1fr;
+    }
+
+    .price-box {
+        display: block;
+    }
+
+    .total-price {
+        margin-top: 8px;
+    }
+
+    .details-footer {
+        display: block;
+    }
+
+    .cancel-button {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+}
+
+</style>
+
+
+<div class="booking-details-page">
+
+    <div class="booking-details-container">
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================= -->
+
+        <div class="details-top">
+
+            <div>
+
+                <div class="details-label">
+                    DRIVELUX MANAGEMENT
+                </div>
+
+                <h1 class="details-title">
+                    Booking Details
+                </h1>
+
+                <p class="details-subtitle">
+                    Complete information about this reservation.
+                </p>
+
+            </div>
+
+
+            <a
+                href="{% url 'dashboard' %}"
+                class="back-dashboard"
+            >
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             MAIN CARD
+        ================================================= -->
+
+        <div class="details-card">
+
+
+            <!-- =================================================
+                 BOOKING HEADER
+            ================================================= -->
+
+            <div class="booking-header">
+
+                <div>
+
+                    <div class="booking-id-label">
+                        Booking ID
+                    </div>
+
+                    <div class="booking-id">
+                        {{ booking.booking_id }}
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div>
+
+                    {% if booking.status == "Pending" %}
+
+                        <span
+                            class="
+                                status-badge
+                                status-pending
+                            "
+                        >
+                            Pending
+                        </span>
+
+
+                    {% elif booking.status == "Confirmed" %}
+
+                        <span
+                            class="
+                                status-badge
+                                status-confirmed
+                            "
+                        >
+                            Confirmed
+                        </span>
+
+
+                    {% elif booking.status == "Completed" %}
+
+                        <span
+                            class="
+                                status-badge
+                                status-completed
+                            "
+                        >
+                            Completed
+                        </span>
+
+
+                    {% elif booking.status == "Cancelled" %}
+
+                        <span
+                            class="
+                                status-badge
+                                status-cancelled
+                            "
+                        >
+                            Cancelled
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================= -->
+
+            <div class="details-content">
+
+
+                <!-- =================================================
+                     CUSTOMER INFORMATION
+                ================================================= -->
+
+                <div class="details-section">
+
+                    <h2 class="section-title">
+                        Customer Information
+                    </h2>
+
+
+                    <div class="info-grid">
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Customer Name
+                            </span>
+
+                            <span class="info-value">
+                                {{ booking.customer_name }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Email
+                            </span>
+
+                            <span class="info-value">
+                                {{ booking.customer_email }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Phone
+                            </span>
+
+                            <span class="info-value">
+                                {{ booking.customer_phone }}
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CAR INFORMATION
+                ================================================= -->
+
+                <div class="details-section">
+
+                    <h2 class="section-title">
+                        Car Information
+                    </h2>
+
+
+                    <div class="car-details-box">
+
+
+                        <div class="car-highlight">
+
+                            <div class="car-highlight-label">
+                                BOOKED VEHICLE
+                            </div>
+
+                            <div class="car-highlight-name">
+                                {{ booking.car.car_name }}
+                            </div>
+
+                            <div class="car-highlight-model">
+                                {{ booking.car.brand }} ·
+                                {{ booking.car.model }}
+                            </div>
+
+                        </div>
+
+
+                        <div class="car-specs">
+
+
+                            <div class="car-spec-row">
+
+                                <span class="car-spec-label">
+                                    Category
+                                </span>
+
+                                <span class="car-spec-value">
+                                    {{ booking.car.category }}
+                                </span>
+
+                            </div>
+
+
+                            <div class="car-spec-row">
+
+                                <span class="car-spec-label">
+                                    Fuel
+                                </span>
+
+                                <span class="car-spec-value">
+                                    {{ booking.car.fuel_type }}
+                                </span>
+
+                            </div>
+
+
+                            <div class="car-spec-row">
+
+                                <span class="car-spec-label">
+                                    Transmission
+                                </span>
+
+                                <span class="car-spec-value">
+                                    {{ booking.car.transmission }}
+                                </span>
+
+                            </div>
+
+
+                            <div class="car-spec-row">
+
+                                <span class="car-spec-label">
+                                    Seats
+                                </span>
+
+                                <span class="car-spec-value">
+                                    {{ booking.car.seats }}
+                                </span>
+
+                            </div>
+
+
+                            <div class="car-spec-row">
+
+                                <span class="car-spec-label">
+                                    Location
+                                </span>
+
+                                <span class="car-spec-value">
+                                    {{ booking.car.location }}
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     BOOKING DATES
+                ================================================= -->
+
+                <div class="details-section">
+
+                    <h2 class="section-title">
+                        Rental Period
+                    </h2>
+
+
+                    <div class="date-box">
+
+
+                        <div class="date-item">
+
+                            <div class="date-label">
+                                Pickup Date
+                            </div>
+
+                            <span class="date-value">
+                                {{ booking.pickup_date }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="date-item">
+
+                            <div class="date-label">
+                                Return Date
+                            </div>
+
+                            <span class="date-value">
+                                {{ booking.return_date }}
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PAYMENT INFORMATION
+                ================================================= -->
+
+                <div class="details-section">
+
+                    <h2 class="section-title">
+                        Payment Summary
+                    </h2>
+
+
+                    <div class="price-box">
+
+                        <div>
+
+                            <div class="price-label">
+                                Rental Duration
+                            </div>
+
+                            <strong>
+                                {{ booking.total_days }} day{{ booking.total_days|pluralize }}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="price-label">
+                                Total Amount
+                            </div>
+
+                            <div class="total-price">
+                                ₹{{ booking.total_price }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FOOTER
+                ================================================= -->
+
+                <div class="details-footer">
+
+
+                    <div class="created-date">
+
+                        Booking created on
+                        {{ booking.created_at|date:"d M Y, h:i A" }}
+
+                    </div>
+
+
+                    {% if booking.status != "Cancelled" %}
+
+                        <a
+                            href="{% url 'cancel_booking' booking.booking_id %}"
+                            class="cancel-button"
+                        >
+                            Cancel Booking
+                        </a>
+
+                    {% endif %}
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

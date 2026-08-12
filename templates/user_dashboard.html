@@ -1,0 +1,574 @@
+{% extends 'base.html' %}
+
+{% block title %}
+DriveLux | My Dashboard
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.dashboard-page {
+    min-height: 100vh;
+    background: #f7f7f3;
+    padding: 45px 0 70px;
+    color: #202a2e;
+}
+
+.dashboard-container {
+    width: 92%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* HEADER */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.small-label {
+    color: #23716e;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.dashboard-title {
+    margin: 7px 0 0;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.dashboard-description {
+    color: #7c8789;
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+.logout-btn {
+    background: #205e5b;
+    color: white;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.logout-btn:hover {
+    background: #174b49;
+    color: white;
+}
+
+/* STATISTICS */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e0e6e4;
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.stat-label {
+    color: #7c8789;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.stat-number {
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 8px;
+    color: #205e5b;
+}
+
+/* BOOKING CARD */
+
+.bookings-card {
+    background: white;
+    border: 1px solid #e0e6e4;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.bookings-header {
+    padding: 22px 25px;
+    border-bottom: 1px solid #edf0ef;
+}
+
+.bookings-title {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.bookings-subtitle {
+    color: #858f91;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* TABLE */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.booking-table th {
+    background: #fafcfb;
+    color: #667174;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    padding: 14px 18px;
+    text-align: left;
+}
+
+.booking-table td {
+    padding: 16px 18px;
+    border-top: 1px solid #edf0ef;
+    font-size: 13px;
+    color: #374548;
+}
+
+.car-name {
+    font-weight: 800;
+    color: #202a2e;
+}
+
+.booking-id {
+    font-size: 11px;
+    color: #7c8789;
+}
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.status-pending {
+    background: #fff4d6;
+    color: #8a6800;
+}
+
+.status-confirmed {
+    background: #e1f3ed;
+    color: #17634f;
+}
+
+.status-completed {
+    background: #e7edf7;
+    color: #34577c;
+}
+
+.status-cancelled {
+    background: #f6e4e4;
+    color: #914949;
+}
+
+/* VIEW BUTTON */
+
+.view-btn {
+    display: inline-block;
+    background: #205e5b;
+    color: white;
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.view-btn:hover {
+    background: #174b49;
+    color: white;
+}
+.cancel-btn {
+    display: inline-block;
+    margin-left: 5px;
+    background: #f6e4e4;
+    color: #914949;
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.cancel-btn:hover {
+    background: #914949;
+    color: white;
+}
+
+/* EMPTY */
+
+.empty-box {
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.empty-box h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.empty-box p {
+    color: #858f91;
+    font-size: 13px;
+}
+
+.browse-btn {
+    display: inline-block;
+    margin-top: 12px;
+    background: #205e5b;
+    color: white;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-header {
+        display: block;
+    }
+
+    .logout-btn {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    .dashboard-title {
+        font-size: 28px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+<div class="dashboard-page">
+
+    <div class="dashboard-container">
+
+        <!-- HEADER -->
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <div class="small-label">
+                    DRIVELUX
+                </div>
+
+                <h1 class="dashboard-title">
+                    My Dashboard
+                </h1>
+
+                <p class="dashboard-description">
+                    View and manage your car bookings.
+                </p>
+
+            </div>
+
+            <a href="{% url 'logout' %}" class="logout-btn">
+                Logout
+            </a>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    TOTAL BOOKINGS
+                </div>
+
+                <div class="stat-number">
+                    {{ total_bookings }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    PENDING
+                </div>
+
+                <div class="stat-number">
+                    {{ pending_bookings }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    CONFIRMED
+                </div>
+
+                <div class="stat-number">
+                    {{ confirmed_bookings }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    COMPLETED
+                </div>
+
+                <div class="stat-number">
+                    {{ completed_bookings }}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOKINGS -->
+
+        <div class="bookings-card">
+
+            <div class="bookings-header">
+
+                <h2 class="bookings-title">
+                    My Recent Bookings
+                </h2>
+
+                <div class="bookings-subtitle">
+                    Your latest car booking activity.
+                </div>
+
+            </div>
+
+
+            {% if recent_bookings %}
+
+            <div class="table-wrapper">
+
+                <table class="booking-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Booking
+                            </th>
+
+                            <th>
+                                Car
+                            </th>
+
+                            <th>
+                                Pickup
+                            </th>
+
+                            <th>
+                                Return
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for booking in recent_bookings %}
+
+                        <tr>
+
+                            <td>
+
+                                <div class="car-name">
+                                    {{ booking.booking_id }}
+                                </div>
+
+                                <div class="booking-id">
+                                    {{ booking.created_at|date:"d M Y" }}
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="car-name">
+                                    {{ booking.car.car_name }}
+                                </div>
+
+                                {{ booking.car.brand }}
+
+                            </td>
+
+
+                            <td>
+                                {{ booking.pickup_date|date:"d M Y" }}
+                            </td>
+
+
+                            <td>
+                                {{ booking.return_date|date:"d M Y" }}
+                            </td>
+
+
+                            <td>
+                                ₹{{ booking.total_price }}
+                            </td>
+
+
+                            <td>
+
+                                {% if booking.status == "Pending" %}
+
+                                    <span class="status status-pending">
+                                        Pending
+                                    </span>
+
+                                {% elif booking.status == "Confirmed" %}
+
+                                    <span class="status status-confirmed">
+                                        Confirmed
+                                    </span>
+
+                                {% elif booking.status == "Completed" %}
+
+                                    <span class="status status-completed">
+                                        Completed
+                                    </span>
+
+                                {% elif booking.status == "Cancelled" %}
+
+                                    <span class="status status-cancelled">
+                                        Cancelled
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <td>
+
+    <a
+        href="{% url 'booking_detail' booking.booking_id %}"
+        class="view-btn"
+    >
+        View
+    </a>
+
+    {% if booking.status == "Pending" or booking.status == "Confirmed" %}
+
+        <a
+            href="{% url 'cancel_booking' booking.booking_id %}"
+            class="cancel-btn"
+        >
+            Cancel
+        </a>
+
+    {% endif %}
+
+</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-box">
+
+                <h3>
+                    No Bookings Yet
+                </h3>
+
+                <p>
+                    You haven't booked any car yet.
+                </p>
+
+                <a
+                    href="{% url 'home' %}"
+                    class="browse-btn"
+                >
+                    Browse Cars
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
