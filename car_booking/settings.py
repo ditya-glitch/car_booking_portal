@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-wh4e-+c19d$coi6nv*onbvdsbsn$1mo4x-36*_$8qd2xh8=trl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "car-booking-portal-3.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
