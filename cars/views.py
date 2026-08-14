@@ -128,7 +128,7 @@ def car_detail(request, car_id):
 # =====================================================
 # BOOK CAR
 # =====================================================
-
+@login_required
 def book_car(request, car_id):
 
     car = get_object_or_404(
