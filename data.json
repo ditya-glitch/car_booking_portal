@@ -1,0 +1,834 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$Un8zcmM35ucgUsAcsFpMRw$k+6MuK7Xm5k1GwGiP4HBDYCSdtAvqExjEmpaTjqMZs8=",
+    "last_login": "2026-08-09T16:31:29.254Z",
+    "is_superuser": true,
+    "username": "ditya",
+    "first_name": "",
+    "last_name": "",
+    "email": "ditya4592@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-08T18:39:27.213Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3quy64ka55c88yl7d0i4a1ump1s6l3vd",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlleJ_5R0nOGaHe9xgGUSHFSIe4OkVJA-2bmvdSA21qHrckyjFmdFajT70bID5l2kO843WbN87QuI-ld0Qdt-jpneV4O9--gYqvfmiAly8kCY-8cCWGJMRgP3DkwAcG7rkAMwXIRR0wgPgXJ0WDvM1v1_gDXcDfQ:1wt6Qr:7OO_gyB37tHXIsHeZCi2oE6rZNgSoNAsPuuxy-5vLCU",
+    "expire_date": "2026-08-23T16:31:29.284Z"
+  }
+},
+{
+  "model": "cars.car",
+  "pk": 1,
+  "fields": {
+    "car_name": "Creta",
+    "brand": "Hyundai",
+    "model": "Creta 2025",
+    "category": "SUV",
+    "fuel_type": "Petrol",
+    "transmission": "Automatic",
+    "seats": 5,
+    "price_per_day": "2499.84",
+    "location": "RANCHI",
+    "description": "Comfortable and stylish SUV suitable for citya and long-distance travel.",
+    "car_image": "cars/creta.png",
+    "available": true,
+    "created_at": "2026-08-08T18:44:07.509Z",
+    "updated_at": "2026-08-08T19:56:08.102Z"
+  }
+},
+{
+  "model": "cars.car",
+  "pk": 2,
+  "fields": {
+    "car_name": "Fortuner",
+    "brand": "Toyota",
+    "model": "Fortuner 2025",
+    "category": "SUV",
+    "fuel_type": "Diesel",
+    "transmission": "Automatic",
+    "seats": 7,
+    "price_per_day": "4500.00",
+    "location": "RANCHI",
+    "description": "Powerful and spacious SUV with premium interiors, suitable for family trips and long journeys.",
+    "car_image": "cars/fortuner.png",
+    "available": true,
+    "created_at": "2026-08-08T18:51:35.282Z",
+    "updated_at": "2026-08-08T20:12:07.111Z"
+  }
+},
+{
+  "model": "cars.car",
+  "pk": 3,
+  "fields": {
+    "car_name": "City",
+    "brand": "Honda",
+    "model": "City 2025",
+    "category": "Sedan",
+    "fuel_type": "Petrol",
+    "transmission": "Automatic",
+    "seats": 5,
+    "price_per_day": "2200.02",
+    "location": "RANCHI",
+    "description": "Elegant sedan offering a smooth driving experience, comfortable interiors and excellent fuel efficiency.",
+    "car_image": "cars/city.png",
+    "available": true,
+    "created_at": "2026-08-08T18:54:54.445Z",
+    "updated_at": "2026-08-08T20:11:52.017Z"
+  }
+},
+{
+  "model": "cars.car",
+  "pk": 4,
+  "fields": {
+    "car_name": "Nexon EV",
+    "brand": "Tata",
+    "model": "Nexon EV 2025",
+    "category": "SUV",
+    "fuel_type": "Electric",
+    "transmission": "Automatic",
+    "seats": 5,
+    "price_per_day": "2800.00",
+    "location": "RANCHI",
+    "description": "Modern electric SUV with a quiet cabin, comfortable ride and eco-friendly performance.",
+    "car_image": "cars/nexon.png",
+    "available": true,
+    "created_at": "2026-08-08T18:56:43.818Z",
+    "updated_at": "2026-08-08T20:11:37.152Z"
+  }
+},
+{
+  "model": "cars.car",
+  "pk": 5,
+  "fields": {
+    "car_name": "5 Series",
+    "brand": "BMW",
+    "model": "5 Series 2025",
+    "category": "Luxury",
+    "fuel_type": "Petrol",
+    "transmission": "Automatic",
+    "seats": 5,
+    "price_per_day": "7500.00",
+    "location": "RANCHI",
+    "description": "Premium luxury sedan featuring sophisticated styling, refined performance and a high-end interior.",
+    "car_image": "cars/5_series.png",
+    "available": true,
+    "created_at": "2026-08-08T18:57:58.377Z",
+    "updated_at": "2026-08-08T20:11:20.149Z"
+  }
+},
+{
+  "model": "cars.car",
+  "pk": 6,
+  "fields": {
+    "car_name": "Swift",
+    "brand": "Maruti Suzuki",
+    "model": "Swift 2025",
+    "category": "Hatchback",
+    "fuel_type": "Petrol",
+    "transmission": "Manual",
+    "seats": 5,
+    "price_per_day": "1599.68",
+    "location": "RANCHI",
+    "description": "Compact and economical hatchback, perfect for city travel and everyday use",
+    "car_image": "cars/swift_6Q5xFl2.png",
+    "available": true,
+    "created_at": "2026-08-08T18:59:10.331Z",
+    "updated_at": "2026-08-11T18:50:40.637Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 1,
+  "fields": {
+    "booking_id": "DLX-DB07EF86",
+    "car": 5,
+    "customer_name": "manav kumar",
+    "customer_email": "manav1234@gmail.com",
+    "customer_phone": "6390671245",
+    "pickup_date": "2026-08-09",
+    "return_date": "2026-08-11",
+    "total_days": 2,
+    "total_price": "15000.00",
+    "status": "Pending",
+    "created_at": "2026-08-09T09:15:55.063Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 2,
+  "fields": {
+    "booking_id": "DLX-AC82AC2C",
+    "car": 1,
+    "customer_name": "aman singh",
+    "customer_email": "aman12@gmail.com",
+    "customer_phone": "3452980613",
+    "pickup_date": "2026-08-18",
+    "return_date": "2026-08-19",
+    "total_days": 1,
+    "total_price": "2499.84",
+    "status": "Pending",
+    "created_at": "2026-08-09T09:27:35.468Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 3,
+  "fields": {
+    "booking_id": "DLX-459113F7",
+    "car": 1,
+    "customer_name": "Priya Kumari",
+    "customer_email": "priya67@gmail.com",
+    "customer_phone": "09162713480",
+    "pickup_date": "2026-08-26",
+    "return_date": "2026-08-27",
+    "total_days": 1,
+    "total_price": "2499.84",
+    "status": "Confirmed",
+    "created_at": "2026-08-09T09:47:28.396Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 4,
+  "fields": {
+    "booking_id": "DLX-49015BC6",
+    "car": 1,
+    "customer_name": "ditya",
+    "customer_email": "ditya1234@gmail.com",
+    "customer_phone": "09162713480",
+    "pickup_date": "2026-08-18",
+    "return_date": "2026-08-20",
+    "total_days": 2,
+    "total_price": "4999.68",
+    "status": "Cancelled",
+    "created_at": "2026-08-09T15:54:22.659Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 5,
+  "fields": {
+    "booking_id": "DLX-2281FB83",
+    "car": 1,
+    "customer_name": "ditya",
+    "customer_email": "ditya1234@gmail.com",
+    "customer_phone": "09162713480",
+    "pickup_date": "2026-08-18",
+    "return_date": "2026-08-20",
+    "total_days": 2,
+    "total_price": "4999.68",
+    "status": "Pending",
+    "created_at": "2026-08-09T15:56:52.560Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 6,
+  "fields": {
+    "booking_id": "DLX-7D813B46",
+    "car": 2,
+    "customer_name": "ditya",
+    "customer_email": "ditya1234@gmail.com",
+    "customer_phone": "09162713480",
+    "pickup_date": "2026-08-10",
+    "return_date": "2026-08-12",
+    "total_days": 2,
+    "total_price": "9000.00",
+    "status": "Cancelled",
+    "created_at": "2026-08-09T15:58:51.886Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 7,
+  "fields": {
+    "booking_id": "DLX-469279FD",
+    "car": 3,
+    "customer_name": "payal",
+    "customer_email": "ditya1234@gmail.com",
+    "customer_phone": "09162713480",
+    "pickup_date": "2026-08-25",
+    "return_date": "2026-08-26",
+    "total_days": 1,
+    "total_price": "2200.02",
+    "status": "Cancelled",
+    "created_at": "2026-08-09T17:34:11.929Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 8,
+  "fields": {
+    "booking_id": "DLX-FDECA3DC",
+    "car": 5,
+    "customer_name": "juli",
+    "customer_email": "ditya4592@gmail.com",
+    "customer_phone": "8210890645",
+    "pickup_date": "2026-08-12",
+    "return_date": "2026-08-14",
+    "total_days": 2,
+    "total_price": "15000.00",
+    "status": "Cancelled",
+    "created_at": "2026-08-11T13:05:38.168Z"
+  }
+},
+{
+  "model": "cars.booking",
+  "pk": 9,
+  "fields": {
+    "booking_id": "DLX-152814D9",
+    "car": 6,
+    "customer_name": "Ditya",
+    "customer_email": "ditya4592@gmail.com",
+    "customer_phone": "09162713480",
+    "pickup_date": "2026-08-24",
+    "return_date": "2026-08-26",
+    "total_days": 2,
+    "total_price": "3199.36",
+    "status": "Pending",
+    "created_at": "2026-08-12T05:35:39.743Z"
+  }
+},
+{
+  "model": "cars.review",
+  "pk": 1,
+  "fields": {
+    "car": 5,
+    "customer_name": "ditya",
+    "customer_email": "ditya4592@gmail.com",
+    "rating": 3,
+    "comment": "good experience",
+    "created_at": "2026-08-12T05:59:27.226Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-08-08T18:44:07.513Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "1",
+    "object_repr": "Creta",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-08-08T18:51:35.287Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "2",
+    "object_repr": "Fortuner",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-08-08T18:54:54.449Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "3",
+    "object_repr": "City",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-08-08T18:56:43.825Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "4",
+    "object_repr": "Nexon EV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-08-08T18:57:58.381Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "5",
+    "object_repr": "5 Series",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-08-08T18:59:10.338Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "6",
+    "object_repr": "Swift",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-08-08T19:27:52.495Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "1",
+    "object_repr": "Creta",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-08-08T19:28:08.894Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "2",
+    "object_repr": "Fortuner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-08-08T19:28:20.473Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "3",
+    "object_repr": "City",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-08-08T19:28:32.194Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "4",
+    "object_repr": "Nexon EV",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-08-08T19:28:43.825Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "5",
+    "object_repr": "5 Series",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-08-08T19:30:47.823Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "6",
+    "object_repr": "Swift",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-08-08T19:43:30.100Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "1",
+    "object_repr": "Creta",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-08-08T19:48:29.631Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "1",
+    "object_repr": "Creta",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-08-08T19:56:08.106Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "1",
+    "object_repr": "Creta",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-08-08T19:59:02.406Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "2",
+    "object_repr": "Fortuner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-08-08T20:01:12.360Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "3",
+    "object_repr": "City",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-08-08T20:03:46.259Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "4",
+    "object_repr": "Nexon EV",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-08-08T20:07:23.060Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "5",
+    "object_repr": "5 Series",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-08-08T20:09:41.049Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "6",
+    "object_repr": "Swift",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-08-08T20:10:25.982Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "6",
+    "object_repr": "Swift",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-08-08T20:11:20.156Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "5",
+    "object_repr": "5 Series",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-08-08T20:11:37.161Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "4",
+    "object_repr": "Nexon EV",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-08-08T20:11:52.022Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "3",
+    "object_repr": "City",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-08-08T20:12:07.116Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "2",
+    "object_repr": "Fortuner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-08-09T15:39:47.204Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "6",
+    "object_repr": "Swift",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Car image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-08-09T17:35:00.694Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "booking"
+    ],
+    "object_id": "6",
+    "object_repr": "DLX-7D813B46 - ditya",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-08-10T17:57:00.325Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "6",
+    "object_repr": "Swift",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Available\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-08-11T18:50:40.643Z",
+    "user": [
+      "ditya"
+    ],
+    "content_type": [
+      "cars",
+      "car"
+    ],
+    "object_id": "6",
+    "object_repr": "Swift",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Available\"]}}]"
+  }
+}
+]
